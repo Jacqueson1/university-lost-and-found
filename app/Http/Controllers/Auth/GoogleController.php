@@ -12,12 +12,17 @@ class GoogleController extends Controller
 {
     public function redirect()
     {
-        return Socialite::driver('google')->redirect();
+        /** @var \Laravel\Socialite\Two\GoogleProvider $driver */
+        $driver = Socialite::driver('google');
+
+        return $driver->stateless()->redirect();
     }
 
     public function callback()
     {
-        $g = Socialite::driver('google')->user();
+        /** @var \Laravel\Socialite\Two\GoogleProvider $driver */
+        $driver = Socialite::driver('google');
+        $g = $driver->stateless()->user();
 
         // Find by google_id or email; create a normal user if none exists
         $user = User::where('google_id', $g->getId())->orWhere('email', $g->getEmail())->first();
