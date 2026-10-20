@@ -33,8 +33,12 @@ class AdminController extends Controller
     // Delete an item and its image file
     public function destroyItem(Item $item)
     {
-        Storage::disk('public')->delete($item->image_path);
-        $item->delete(); // claims are removed by the cascade
+
+        if ($item->image_path) {
+            Storage::disk('public')->delete($item->image_path);
+        }
+
+        $item->delete();
         return back()->with('success', 'Item deleted.');
     }
 

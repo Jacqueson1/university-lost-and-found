@@ -28,15 +28,18 @@ class ItemController extends Controller
     {
         $data = $request->validate([
             'name'        => 'required|string|max:100',
+            'item_description' => 'nullable|string',
             'detail'      => 'required|string',
             'found_place' => 'required|string|max:150',
             'date'        => 'required|date',
-            'image'       => 'required|file',
+            //'image'       => 'required|file',
+            //uncomment this image if dr Su want it later.
         ]);
 
         // Store the image in storage/app/public/items
-        $data['image_path'] = $request->file('image')->store('items', 'public');
-        unset($data['image']);
+        //$data['image_path'] = $request->file('image')->store('items', 'public');
+        //unset($data['image']);
+        //uncomment this image if dr Su want it later.
 
         $data['user_id'] = $request->user()->id;
         $data['status']  = 'pending';

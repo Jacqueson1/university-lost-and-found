@@ -8,9 +8,13 @@
 @endphp
 
 <section class="panel panel--detail">
-    <img src="{{ asset('storage/'.$item->image_path) }}" alt="{{ $item->name }}">
+    {{-- <img src="{{ asset('storage/'.$item->image_path) }}" alt="{{ $item->name }}"> --}}
+    {{-- Uncomment this if dr Su wants it later. --}}
 
     <div>
+        <h2>{{ $item->name }}</h2>
+        <p>{{ $item->item_description }}</p>
+        
         <h2>{{ $item->name }}</h2>
         <p class="muted">
             <i data-lucide="map-pin"></i> {{ $item->found_place }}<br>

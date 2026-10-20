@@ -9,8 +9,13 @@
     <form method="POST" action="{{ route('items.store') }}" enctype="multipart/form-data" class="form">
         @csrf
 
-        <label>Photo
+        {{-- <label>Photo
             <input type="file" name="image" accept="image/*" required>
+        </label> --}}
+        {{-- Uncomment this if dr Su wants it later. --}}
+        
+        <label>Item description (shown publicly, e.g. "A small blue key with a round head")
+            <textarea name="item_description" rows="3">{{ old('item_description') }}</textarea>
         </label>
 
         <label>Item name (shown publicly, e.g. "Blue key")

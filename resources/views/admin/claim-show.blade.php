@@ -7,7 +7,9 @@
 <!-- Bento grid: photo | finder description | claimer proof -->
 <section class="bento bento--review">
     <div class="tile">
-        <img src="{{ asset('storage/'.$claim->item->image_path) }}" class="review-img">
+        {{-- <img src="{{ asset('storage/'.$claim->item->image_path) }}" class="review-img"> --}}
+        {{-- Uncomment this if dr Su wants it later. --}}
+        
         <h3>{{ $claim->item->name }}</h3>
         <p class="muted">{{ $claim->item->found_place }} · {{ $claim->item->date->format('d M Y') }}</p>
     </div>

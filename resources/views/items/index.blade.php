@@ -17,8 +17,14 @@
 
     @forelse ($items as $item)
         <a href="{{ route('items.show', $item) }}" class="card">
-            <img src="{{ asset('storage/'.$item->image_path) }}" alt="{{ $item->name }}">
+            {{-- <img src="{{ asset('storage/'.$item->image_path) }}" alt="{{ $item->name }}"> --}}
+            {{-- Uncomment this if dr Su wants it later. --}}
             <div class="card__body">
+                <div>
+                    <h3>{{ $item->name }}</h3>
+                    <p class="muted">{{ Str::limit($item->item_description, 70) }}</p>
+                </div>
+                
                 <h3>{{ $item->name }}</h3>
                 @if ($item->status === 'claimed')
                     <span class="badge badge--claimed">Claimed</span>

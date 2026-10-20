@@ -12,7 +12,9 @@
         <tbody>
         @foreach ($items as $item)
             <tr>
-                <td><img src="{{ asset('storage/'.$item->image_path) }}" class="thumb"></td>
+                {{-- <td><img src="{{ asset('storage/'.$item->image_path) }}" class="thumb"></td> --}}
+                {{-- Uncomment if dr Su say so --}}
+                <td>{{ $item->item_description }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->detail }}</td>
                 <td>{{ $item->found_place }}<br><small>{{ $item->date->format('d M Y') }}</small></td>

@@ -23,8 +23,10 @@ class DeleteClaimedItems extends Command
             ->get();
 
         foreach ($items as $item) {
-            Storage::disk('public')->delete($item->image_path); // delete the image file
-            $item->claims()->delete();                          // no claim history kept
+            if ($item->image_path) {
+                Storage::disk('public')->delete($item->image_path);
+            }
+            $item->claims()->delete(); // Delete associated claims
             $item->delete();
         }
 
